@@ -1,0 +1,35 @@
+<html>
+    <script>
+        // async function f(){
+        //     const temp = new Promise((resolve, reject) => resolve("Hi")).
+        //     then(output => { return output }).
+        //     catch(e => { console.log(`handle exception catch: ${e}`); return e; });
+        //     console.log(temp);
+        // }
+        // f();
+
+        async function f(){
+            const promisearray = [
+                new Promise((resolve, reject) => reject("service1 status is down")),
+                new Promise((resolve, reject) => resolve("service2 status is up")),
+                new Promise((resolve, reject) => resolve("service3 status is up")),
+            ]
+            const allservicesstatus = await Promise.race(promisearray).catch(e => { console.log(`catch`); return e });
+            console.log(allservicesstatus);
+        }
+        f();
+    </script>
+</html>
+<!-- 
+Promise.all => It waits until all promises are resolved
+promise.all(
+    promise(productservice)
+    promise(paymentgateway)
+    promise(cartservice)
+).then(display homepage).catch(redirect user to error page);
+
+promise.race(
+    promise(broker1)
+    promise(broker2)
+    promise(broker3)
+).then(...) -->

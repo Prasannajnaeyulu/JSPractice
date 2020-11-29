@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script>
+            let fruits = ["apple", "Banana", "Orange", "Grapes"];
+            let date = new Date();
+            function isVowel(fruit){
+                let fruitName = fruit.toLowerCase();
+                console.log(fruitName);
+                if(fruitName.startsWith("a")||fruitName.startsWith("e")||fruitName.startsWith("i")||fruitName.startsWith("o")||fruitName.startsWith("u")){
+                    //return "an";
+                    return true;
+                }
+                return false;
+            //return "a";
+            }
+            function genMsg(){
+                let msgElem = document.getElementById("loading");
+                msgElem.innerText = "Generating message...";
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        //msgElem.innerText= "Done";
+                        window.alert("Hello anonymous!!"); 
+                        msgElem.innerText= "";
+                        resolve();
+                    }, 2000);
+                });
+            }
+            //console.log(fruits.filter(fruit => isVowel(fruit)));
+            // while(true){
+            //     //console.log(`date diff: ${new Date() - date }`);
+            //     if(new Date() - date > 10000){
+            //         console.log("Main thread done!!");
+            //         break;
+            //     }
+            // }
+            let i=0;
+            for(let fruit of fruits){
+                console.log(`fruit${i++}: ${fruit}`)
+            }
+            const fruit = {
+                "name": "orange",
+                "color": "orange",
+            }
+            const apple = {
+                ...fruit,
+                "name": "apple",
+                "color": "red"
+            }
+            for(let fruitProp in apple){
+                console.log(`${fruitProp}: ${apple[fruitProp]}`);
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <button id="msg_generator" onclick="genMsg();" onload='' style="margin:auto 45% auto 45%">Click Me!!</button>
+            <span id="loading"></span>
+        </div>
+    </body>
+</html>
