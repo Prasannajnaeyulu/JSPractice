@@ -1,0 +1,34 @@
+<html>
+  <body>
+    <p> I am Anji </p>
+    <h1> hello </h1>
+    <div style="width: 100px;height: 100px">
+        <h2>hi</h2>
+    </div>
+  </body>
+  
+  
+  <script>
+    //  234 => get digits from this number
+    //  234%10 = 4
+    //  234/10 = 23
+    //  23%10 = 3
+    //  23/10 = 2
+    //  2%10 = 2
+    //  2/10 = 0
+
+     function Large(n){
+       let digits = []
+       while(n!=0){
+          digits.push(n%10);
+          n = parseInt(n/10);
+       }
+       digits.sort((a, b) => b-a)
+       console.log(digits)
+       return digits
+     }
+     largetnum = Large(405);
+     ln = largetnum.reduce((a, b) => a+ ""+ b )
+     console.log(parseInt(ln))
+  </script>
+</html>

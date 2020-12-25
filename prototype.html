@@ -5,20 +5,32 @@
         //     this.model = model;
         //     this.price = price;
         // }
-        class car {
+        class Car {
             constructor(make,model,price){
                 this.make = make;
                 this.model = model;
                 this.price = price;
             }
+            print(){
+                console.log(`Car Details: ${this.make} ${this.model} ${this.price}`)
+            }
+            static details(){
+                console.log(this)
+                console.log("I am a super car")
+                console.log('The Model built from the super car:')
+                this.print();
+                
+            }
         }
 
-        const BMW = new car("BMW", "SX100", "£20000");
-        const Tesla = new car("Tesla X", "AutoPilot", "£70000");
-        car.prototype.year=2017;
+        const BMW = new Car("BMW", "SX100", "£20000");
+        const Tesla = new Car("Tesla X", "AutoPilot", "£70000");
+        Car.prototype.year=2017;
         console.dir(BMW);
         console.dir(Tesla);
 
         BMW.__proto__.year=2020;
+        //console.log(BMW.print())
+        console.log(Car.details.call(BMW))
     </script>
 </html> 
